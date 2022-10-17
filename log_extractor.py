@@ -76,18 +76,6 @@ class LogExtractor:
         events = set(self.events)
         print(f"number of unique events {len(events)}")
         self.events = events
-    
-
-    # def build_timestamp_src_ip_map(self):
-    #     existing_events = self.raw_log_data["events"]
-    #     data = {}
-    #     for event in existing_events:
-    #         message = event["message"]
-    #         timestamp = dt.utcfromtimestamp(int(event["ingestionTime"]) / 1000).strftime('%Y-%m-%d %H:%M:%S')
-    #         src_ip = message.split(" ")[3]
-    #         print(timestamp, src_ip)
-        # data[timestamp] = src_ip
-        # print(data)
 
     def run(self) -> None:
         self.get_events()
@@ -97,12 +85,3 @@ class LogExtractor:
         for event in self.events:
             source_ips.append(event.source_ip)
         return source_ips
-            # print(
-            #     event.timestamp, event.source_ip, 
-            #     event.destination_ip, event.port)
-
-
-
-
-    # Convert to real timestamp
-    # ingestionTime
